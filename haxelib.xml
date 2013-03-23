@@ -1,4 +1,4 @@
-<project name="haxe-toml" url="http://myproject.org" license="MIT">
+<project name="haxetoml" url="http://myproject.org" license="MIT">
     <user name="raincole"/>
     <tag v="cross"/>
     <tag v="toml"/>
