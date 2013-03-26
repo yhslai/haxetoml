@@ -1,0 +1,7 @@
+<project name="haxetoml" url="http://myproject.org" license="MIT">
+    <user name="raincole"/>
+    <tag v="cross"/>
+    <tag v="toml"/>
+    <description>The cross-platform TOML implementation in haXe.</description>
+    <version name="0.1">The first working version.</version>
+</project>
