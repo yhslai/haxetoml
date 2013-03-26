@@ -1,0 +1,14 @@
+# Neko
+-main ParserTest
+-cp src
+-cp cli_test
+-neko bin/cli_parser_test.n
+
+--next
+
+# C++ 64bits
+-main ParserTest
+-cp src
+-cp cli_test
+-D HXCPP_M64
+#-cpp bin/cpp_cli_parser
