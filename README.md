@@ -8,15 +8,18 @@ Usage
 
 Given `foo.toml`:
 
+```toml
     [foo]
     a = 1
 
     [foo.bar]
     b = ["2", "3"]
+```
 
 
 You can parse it with:
 
+```haxe
 	import sys.io.File;
 
     var toml = File.getContent('foo.toml');
@@ -26,6 +29,7 @@ You can parse it with:
 
     parsed.foo; // => 1
     parsed.foo.bar[1]; // => "3"
+```
 
 Todo
 =================
