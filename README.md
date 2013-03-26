@@ -19,7 +19,7 @@ Given `foo.toml`:
 
 You can parse it with:
 
-```haxe
+```as3
 	import sys.io.File;
 
     var toml = File.getContent('foo.toml');
