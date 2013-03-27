@@ -3,6 +3,13 @@ Haxetoml
 
 A Haxe implementation of [TOML v0.1.0](https://github.com/mojombo/toml/blob/master/versions/toml-v0.1.0.md) language.
 
+Install
+=================
+
+```
+haxelib install haxetoml
+```
+
 Usage
 =================
 
