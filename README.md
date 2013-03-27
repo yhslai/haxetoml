@@ -6,7 +6,7 @@ A Haxe implementation of [TOML v0.1.0](https://github.com/mojombo/toml/blob/mast
 Install
 =================
 
-```
+```bash
 haxelib install haxetoml
 ```
 
@@ -49,11 +49,11 @@ $ haxe cli_test.hxml
 
 Run it:
 
-```
+```bash
 # You can replace 'simple' with 'harder', 'empty' or whatever file name in resources/test_files
 # C++
-$ cli_test/bin/cpp/ParserTest simple
+cli_test/bin/cpp/ParserTest simple
 # Neko
-$ neko cli_test/bin/ParserTest.n simple
+neko cli_test/bin/ParserTest.n simple
 ```
 
