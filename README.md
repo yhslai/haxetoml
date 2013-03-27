@@ -31,9 +31,4 @@ You can parse it with:
     parsed.foo.bar[1]; // => "3"
 ```
 
-Todo
-=================
-
-- TomlSerializer
-
 
