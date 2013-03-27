@@ -9,11 +9,11 @@ Usage
 Given `foo.toml`:
 
 ```toml
-    [foo]
-    a = 1
+[foo]
+a = 1
 
-    [foo.bar]
-    b = ["2", "3"]
+[foo.bar]
+b = ["2", "3"]
 ```
 
 
@@ -31,4 +31,22 @@ parsed.foo; // => 1
 parsed.foo.bar[1]; // => "3"
 ```
 
+Manually Test
+=================
+
+Compile the test program first:
+
+```
+$ haxe cli_test.hxml
+```
+
+Run it:
+
+```
+# You can replace 'simple' with 'harder', 'empty' or whatever file name in resources/test_files
+# C++
+$ cli_test/bin/cpp/ParserTest simple
+# Neko
+$ neko cli_test/bin/ParserTest.n simple
+```
 
