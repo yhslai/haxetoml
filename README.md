@@ -20,15 +20,15 @@ Given `foo.toml`:
 You can parse it with:
 
 ```as3
-	import sys.io.File;
+import sys.io.File;
 
-    var toml = File.getContent('foo.toml');
-    var parser = new haxetoml.TomlParser();
+var toml = File.getContent('foo.toml');
+var parser = new haxetoml.TomlParser();
 
-    var parsed = parser.parse(toml);
+var parsed = parser.parse(toml);
 
-    parsed.foo; // => 1
-    parsed.foo.bar[1]; // => "3"
+parsed.foo; // => 1
+parsed.foo.bar[1]; // => "3"
 ```
 
 
