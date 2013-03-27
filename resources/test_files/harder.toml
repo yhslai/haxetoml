@@ -11,7 +11,7 @@ test_string = "You'll hate me after this - #" # " Annoying, isn't it?
     # You didn't think it'd as easy as chucking out the last #, did you?
     another_test_string = " Same thing, but with a string #"
     harder_test_string = " And when \"'s are in the string, along with # \"" # "and comments are there too"
-    chinese_test_string = "\/白日依山盡，\\\n\/黃河入海流；\\\n\/欲窮千里目\\\n\/更上一層樓。\\\n"
+    chinese_test_string = "\/白日依山盡，\\\n\/黃河入海流；\\\n\/欲窮千里目，\\\n\/更上一層樓。\\\n"
     # Things will get harder
 
         [the.hard.bit#]
