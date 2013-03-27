@@ -1332,12 +1332,12 @@
 	<key><c path="String"/></key>
 </a></f></parsePair>
 		<parseObj set="method" line="55"><f a=""><x path="Void"/></f></parseObj>
-		<parse public="1" set="method" line="41"><f a="str">
+		<nextToken set="method" line="51"><f a=""><x path="Void"/></f></nextToken>
+		<get_currentToken set="method" line="47"><f a=""><t path="haxetoml._TomlParser.Token"/></f></get_currentToken>
+		<parse public="1" set="method" line="33"><f a="str">
 	<c path="String"/>
 	<d/>
 </f></parse>
-		<nextToken public="1" set="method" line="37"><f a=""><x path="Void"/></f></nextToken>
-		<get_currentToken public="1" set="method" line="33"><f a=""><t path="haxetoml._TomlParser.Token"/></f></get_currentToken>
 		<currentToken public="1" get="get_currentToken" set="null"><t path="haxetoml._TomlParser.Token"/></currentToken>
 		<pos line="27"><x path="Int"/></pos>
 		<root><d/></root>

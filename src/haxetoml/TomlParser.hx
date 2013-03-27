@@ -30,14 +30,6 @@ class TomlParser {
 
 	public function new() {}
 
-	public function get_currentToken() {
-		return tokens[pos];
-	}
-
-	public function nextToken() {
-		pos++;
-	}
-
 	public function parse(str : String) : Dynamic {
 		tokens = tokenize(str);
 
@@ -50,6 +42,14 @@ class TomlParser {
 		parseObj();
 
 		return root;
+	}
+
+	function get_currentToken() {
+		return tokens[pos];
+	}
+
+	function nextToken() {
+		pos++;
 	}
 
 	function parseObj() {
