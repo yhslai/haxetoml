@@ -3,7 +3,7 @@ package haxetoml;
 using haxe.Utf8;
 using Lambda;
 
-enum TokenType {
+private enum TokenType {
 	TkInvalid;
 	TkComment;
 	TkKey;
@@ -14,7 +14,7 @@ enum TokenType {
 	TkBBegin; TkBEnd;
 }
 
-typedef Token = {
+private typedef Token = {
 	var type : TokenType;
 	var value : String;
 	var lineNum : Int;
