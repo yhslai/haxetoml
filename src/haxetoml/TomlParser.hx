@@ -28,8 +28,10 @@ class TomlParser {
 
 	public var currentToken(get_currentToken, null) : Token;
 
+	/** Set up a new TomlParser instance */
 	public function new() {}
 
+	/** Parse a TOML string into a dynamic object.  Throws a String containing an error message if an error is encountered. */
 	public function parse(str : String) : Dynamic {
 		tokens = tokenize(str);
 
@@ -333,4 +335,18 @@ class TomlParser {
 	function InvalidToken(token : Token) {
 		throw('Line ${token.lineNum} Character ${token.colNum}: Invalid Token \'${token.value}\'');
 	}
+
+	/** Static shortcut method to parse toml String into Dynamic object. */
+	public static function parseString(toml:String)
+	{
+		return (new TomlParser()).parse(toml);
+	}
+
+	#if (neko || php || cpp)
+		/** Static shortcut method to read toml file and parse into Dynamic object.  Available on Neko, PHP and CPP. */
+		public static function parseFile(filename:String)
+		{
+			return parseString(sys.io.File.getContent(filename));
+		}
+	#end
 }

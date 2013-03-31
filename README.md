@@ -38,6 +38,16 @@ parsed.foo; // => 1
 parsed.foo.bar[1]; // => "3"
 ```
 
+There are also some shortcut methods:
+
+```as3
+var fileContent = File.getContent('foo.toml');
+var parsed = haxetoml.TomlParser.parseString(fileContent);
+
+// or this shortcut, available on neko, cpp and php:
+var parsed = haxetoml.TomlParser.parseFile('foo.toml');
+```
+
 Manually Test
 =================
 
