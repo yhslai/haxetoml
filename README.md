@@ -67,3 +67,10 @@ cli_test/bin/cpp/ParserTest simple
 neko cli_test/bin/ParserTest.n simple
 ```
 
+To-Do
+=================
+
+* Set default value
+* Compile-time parsing with marco
+* Stringify
+
