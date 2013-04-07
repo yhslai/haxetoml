@@ -3,6 +3,6 @@
     <tag v="cross"/>
     <tag v="toml"/>
     <tag v="parser"/>
-    <description>The cross-platform TOML implementation in haXe.</description>
-    <version name="0.1.1">Implementation of TOML v0.1.0</version>
+    <description>The cross-platform TOML v0.1.0 implementation in haXe.</description>
+    <version name="0.1.2">Support Windows line break(\r\n)</version>
 </project>
