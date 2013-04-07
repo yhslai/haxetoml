@@ -265,7 +265,8 @@ class TomlParser {
 
 	function tokenize(str : String) {
 		var tokens = new Array<Token>();
-		var lines = str.split("\n");
+		var lineBreakPattern = ~/\r\n?|\n/g;
+		var lines = lineBreakPattern.split(str);
 		var a = ~/abc/;
 		var patterns = [
 			{ type: TokenType.TkComment, ereg: ~/^#.*$/},
