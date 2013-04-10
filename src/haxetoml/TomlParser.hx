@@ -335,7 +335,7 @@ class TomlParser {
 	}
 
 	function InvalidToken(token : Token) {
-		throw('Line ${token.lineNum} Character ${token.colNum}: Invalid Token \'${token.value}\'');
+		throw('Line ${token.lineNum} Character ${token.colNum}: Invalid Token \'${token.value}\'(${token.type})');
 	}
 
 	/** Static shortcut method to parse toml String into Dynamic object. */
