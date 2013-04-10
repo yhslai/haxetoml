@@ -20,3 +20,7 @@ test_string = "You'll hate me after this - #" # " Annoying, isn't it?
             "]",
             # ] Oh yes I did
             ]
+
+    [the.hard.bool]
+    true = true
+        false = false
