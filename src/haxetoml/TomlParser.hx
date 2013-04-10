@@ -272,15 +272,15 @@ class TomlParser {
 			{ type: TokenType.TkComment, ereg: ~/^#.*$/},
 			{ type: TokenType.TkKeygroup, ereg: ~/^\[.+\]/},
 			{ type: TokenType.TkString, ereg: ~/^"((\\")|[^"])*"/},
-			{ type: TokenType.TkDatetime, ereg: ~/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z/},
-			{ type: TokenType.TkFloat, ereg: ~/^-?\d+\.\d+/},
-			{ type: TokenType.TkInteger, ereg: ~/^-?\d+/},
-			{ type: TokenType.TkBoolean, ereg: ~/^true|false/},
 			{ type: TokenType.TkAssignment, ereg: ~/^=/},
 			{ type: TokenType.TkBBegin, ereg: ~/^\[/},
 			{ type: TokenType.TkBEnd, ereg: ~/^\]/},
 			{ type: TokenType.TkComma, ereg: ~/^,/},
 			{ type: TokenType.TkKey, ereg: ~/^\S+/},
+			{ type: TokenType.TkDatetime, ereg: ~/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z/},
+			{ type: TokenType.TkFloat, ereg: ~/^-?\d+\.\d+/},
+			{ type: TokenType.TkInteger, ereg: ~/^-?\d+/},
+			{ type: TokenType.TkBoolean, ereg: ~/^true|^false/},
 		];
 
 		for(lineNum in 0...lines.length) {
@@ -301,7 +301,8 @@ class TomlParser {
 
 					if(ereg.match(subline)) {
 						// TkKey has to be the first token of a line
-						if(type == TokenType.TkKeygroup && tokenColNum != 0) {
+						if((type == TokenType.TkKeygroup || type == TokenType.TkKey)
+						   && tokenColNum != 0) {
 							continue;
 						}
 
