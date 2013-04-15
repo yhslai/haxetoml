@@ -301,6 +301,10 @@ class TomlParser {
 				while(StringTools.isSpace(line, colNum)) {
 					colNum++;
 				}
+                if(colNum >= line.length) {
+                    break;
+                }
+
 				var subline = line.substring(colNum);
 
 				var matched = false;
