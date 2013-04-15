@@ -32,13 +32,17 @@ class TomlParser {
 	public function new() {}
 
 	/** Parse a TOML string into a dynamic object.  Throws a String containing an error message if an error is encountered. */
-	public function parse(str : String) : Dynamic {
+	public function parse(str : String, ?defaultValue : Dynamic) : Dynamic {
 		tokens = tokenize(str);
 
 		//for(token in tokens)
 			//trace(token);
 
-		root = {};
+		if(defaultValue != null) {
+			root = defaultValue;
+		} else {
+			root = {};
+		}
 		pos = 0;
 
 		parseObj();
@@ -241,13 +245,13 @@ class TomlParser {
 		while(pos < len) {
 			var c = Utf8.charCodeAt(str, pos);
 
-            // strip first and last quotation marks
-            if ((pos == 0 || pos == len-1) && c == "\"".code) {
-                pos++;
-                continue;
-            }
+			// strip first and last quotation marks
+			if ((pos == 0 || pos == len-1) && c == "\"".code) {
+				pos++;
+				continue;
+			}
 
-            pos++;
+			pos++;
 
 			if(c == "\\".code) {
 				c = Utf8.charCodeAt(str, pos);
@@ -304,9 +308,9 @@ class TomlParser {
 				while(StringTools.isSpace(line, colNum)) {
 					colNum++;
 				}
-                if(colNum >= line.length) {
-                    break;
-                }
+				if(colNum >= line.length) {
+					break;
+				}
 
 				var subline = line.substring(colNum);
 
@@ -348,26 +352,26 @@ class TomlParser {
 
 	function InvalidCharacter(char : String, lineNum : Int, colNum : Int) {
 		throw('Line $lineNum Character ${colNum+1}: ' +
-	          'Invalid Character \'$char\', ' +
-              'Character Code ${char.charCodeAt(0)}');
+			  'Invalid Character \'$char\', ' +
+			  'Character Code ${char.charCodeAt(0)}');
 	}
 
 	function InvalidToken(token : Token) {
 		throw('Line ${token.lineNum+1} Character ${token.colNum+1}: ' +
-              'Invalid Token \'${token.value}\'(${token.type})');
+			  'Invalid Token \'${token.value}\'(${token.type})');
 	}
 
 	/** Static shortcut method to parse toml String into Dynamic object. */
-	public static function parseString(toml:String)
+	public static function parseString(toml: String, defaultValue: Dynamic)
 	{
-		return (new TomlParser()).parse(toml);
+		return (new TomlParser()).parse(toml, defaultValue);
 	}
 
 	#if (neko || php || cpp)
 		/** Static shortcut method to read toml file and parse into Dynamic object.  Available on Neko, PHP and CPP. */
-		public static function parseFile(filename:String)
+		public static function parseFile(filename: String, ?defaultValue: Dynamic)
 		{
-			return parseString(sys.io.File.getContent(filename));
+			return parseString(sys.io.File.getContent(filename), defaultValue);
 		}
 	#end
 }
