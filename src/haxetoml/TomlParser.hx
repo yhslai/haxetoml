@@ -340,11 +340,14 @@ class TomlParser {
 	}
 
 	function InvalidCharacter(char : String, lineNum : Int, colNum : Int) {
-		throw('Line $lineNum Character $colNum: Invalid Character \'$char\'');
+		throw('Line $lineNum Character ${colNum+1}: ' +
+	          'Invalid Character \'$char\', ' +
+              'Character Code ${char.charCodeAt(0)}');
 	}
 
 	function InvalidToken(token : Token) {
-		throw('Line ${token.lineNum} Character ${token.colNum}: Invalid Token \'${token.value}\'(${token.type})');
+		throw('Line ${token.lineNum+1} Character ${token.colNum+1}: ' +
+              'Invalid Token \'${token.value}\'(${token.type})');
 	}
 
 	/** Static shortcut method to parse toml String into Dynamic object. */
