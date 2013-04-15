@@ -168,7 +168,10 @@ class TomlParser {
 		var obj = root;
 
 		for(key in keys) {
-			obj = Reflect.field(obj, key);
+			// A Haxe glitch: empty string will be parsed to [""]
+			if(key != "") {
+				obj = Reflect.field(obj, key);
+			}
 		}
 
 		Reflect.setField(obj, pair.key, pair.value);
