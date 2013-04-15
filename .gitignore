@@ -1,3 +1,5 @@
 *.sublime-*
 haxelib.zip
 cli_test/bin/*
+.idea
+haxetoml.iml
