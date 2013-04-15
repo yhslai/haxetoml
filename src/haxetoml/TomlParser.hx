@@ -237,13 +237,15 @@ class TomlParser {
 		var len = Utf8.length(str);
 		while(pos < len) {
 			var c = Utf8.charCodeAt(str, pos);
-			pos++;
-			
-			// strip first and last quotation marks
-			if ((pos == 1 && c == "\"".code) ||
-				(pos == len && c == "\"".code))
-				continue;
-			
+
+            // strip first and last quotation marks
+            if ((pos == 0 || pos == len-1) && c == "\"".code) {
+                pos++;
+                continue;
+            }
+
+            pos++;
+
 			if(c == "\\".code) {
 				c = Utf8.charCodeAt(str, pos);
 				pos++;
@@ -277,11 +279,11 @@ class TomlParser {
 		var a = ~/abc/;
 		var patterns = [
 			{ type: TokenType.TkComment, ereg: ~/^#.*$/},
-			{ type: TokenType.TkKeygroup, ereg: ~/^\[.+\]/},
+			{ type: TokenType.TkKeygroup, ereg: ~/^\[.+]/},
 			{ type: TokenType.TkString, ereg: ~/^"((\\")|[^"])*"/},
 			{ type: TokenType.TkAssignment, ereg: ~/^=/},
 			{ type: TokenType.TkBBegin, ereg: ~/^\[/},
-			{ type: TokenType.TkBEnd, ereg: ~/^\]/},
+			{ type: TokenType.TkBEnd, ereg: ~/^]/},
 			{ type: TokenType.TkComma, ereg: ~/^,/},
 			{ type: TokenType.TkKey, ereg: ~/^\S+/},
 			{ type: TokenType.TkDatetime, ereg: ~/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z/},
