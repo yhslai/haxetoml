@@ -234,9 +234,16 @@ class TomlParser {
 		var pos = 0;
 		var buf = new haxe.Utf8();
 
-		while(pos < Utf8.length(str)) {
+		var len = Utf8.length(str);
+		while(pos < len) {
 			var c = Utf8.charCodeAt(str, pos);
 			pos++;
+			
+			// strip first and last quotation marks
+			if ((pos == 1 && c == "\"".code) ||
+				(pos == len && c == "\"".code))
+				continue;
+			
 			if(c == "\\".code) {
 				c = Utf8.charCodeAt(str, pos);
 				pos++;
